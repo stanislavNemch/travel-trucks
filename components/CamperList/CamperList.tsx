@@ -7,6 +7,8 @@ import { CamperCard } from "../CamperCard/CamperCard";
 import { Button } from "../Button/Button";
 import styles from "./CamperList.module.css";
 
+import { Loader } from "../Loader/Loader";
+
 export const CamperList = () => {
     const { campers, fetchCampers, loading } = useCampersStore();
     const { filters } = useFilterStore();
@@ -26,7 +28,7 @@ export const CamperList = () => {
     };
 
     if (loading && campers.length === 0) {
-        return <div>Loading...</div>;
+        return <Loader />;
     }
 
     return (

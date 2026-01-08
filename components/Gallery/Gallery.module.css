@@ -10,6 +10,17 @@
     overflow: hidden;
     width: 290px;
     height: 310px;
+    border: 1px solid transparent;
+    transition:
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.imageWrapper:hover {
+    border-color: rgba(16, 24, 40, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(16, 24, 40, 0.1);
 }
 
 .image {
