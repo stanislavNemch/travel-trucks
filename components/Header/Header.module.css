@@ -22,6 +22,37 @@
     transform: translateX(-50%);
 }
 
+@media screen and (max-width: 767px) {
+    .nav {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 64px);
+        background-color: var(--color-white);
+        transform: translateX(100%);
+        transition: transform var(--transition);
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        padding-top: 100px;
+    }
+
+    .navOpen {
+        transform: translateX(0);
+    }
+
+    .navList {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .navLink {
+        font-size: 24px;
+    }
+}
+
 .navList {
     display: flex;
     gap: 32px;
@@ -42,4 +73,25 @@
 
 .active {
     color: var(--color-button);
+}
+
+.burger {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--color-main);
+}
+
+.burgerIcon {
+    width: 32px;
+    height: 32px;
+    stroke: currentColor;
+}
+
+@media screen and (max-width: 767px) {
+    .burger {
+        display: block;
+    }
 }

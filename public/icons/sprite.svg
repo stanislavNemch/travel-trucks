@@ -121,4 +121,7 @@
 </clipPath>
 </defs>
   </symbol>
+  <symbol id="menu" viewBox="0 0 32 32">
+    <path d="M4 8H28M4 16H28M4 24H28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
 </svg>
