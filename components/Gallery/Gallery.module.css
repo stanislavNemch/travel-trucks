@@ -1,0 +1,19 @@
+.gallery {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.imageWrapper {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 290px;
+    height: 310px;
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}

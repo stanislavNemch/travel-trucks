@@ -1,0 +1,45 @@
+.header {
+    background-color: var(--color-inputs);
+    padding: 24px 0;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navList {
+    display: flex;
+    gap: 32px;
+}
+
+.navLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--color-main);
+    transition: color var(--transition);
+}
+
+.navLink:hover {
+    color: var(--color-button);
+}
+
+.active {
+    color: var(--color-button);
+}

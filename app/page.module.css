@@ -1,0 +1,39 @@
+.hero {
+    background-image:
+        linear-gradient(rgba(17, 18, 19, 0.46), rgba(17, 18, 19, 0.46)),
+        url("/images/hero_image_1x.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: calc(100vh - 88px); /* Adjust based on header height */
+    display: flex;
+    align-items: center;
+}
+
+@media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .hero {
+        background-image:
+            linear-gradient(rgba(17, 18, 19, 0.46), rgba(17, 18, 19, 0.46)),
+            url("/images/hero_image_2x.webp");
+    }
+}
+
+.container {
+    color: var(--color-white);
+}
+
+.title {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 0.67;
+    margin-bottom: 16px;
+}
+
+.subtitle {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33;
+    margin-bottom: 40px;
+}
