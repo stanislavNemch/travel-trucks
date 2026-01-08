@@ -57,7 +57,7 @@
 }
 
 .empty {
-    fill: #f2f4f7; /* Or gray */
+    fill: var(--color-block-features);
 }
 
 .comment {

@@ -69,7 +69,7 @@ export const CamperCard: React.FC<CamperCardProps> = ({ camper }) => {
                         </span>
                     </div>
                     <div className={styles.location}>
-                        <Icon id="map-pin" className={styles.mapIcon} />
+                        <Icon id="map" className={styles.mapIcon} />
                         {camper.location}
                     </div>
                 </div>

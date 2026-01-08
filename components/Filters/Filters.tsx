@@ -43,7 +43,7 @@ export const Filters = () => {
                         Location
                     </label>
                     <div className={styles.inputWrapper}>
-                        <Icon id="map-pin" className={styles.inputIcon} />
+                        <Icon id="map" className={styles.inputIcon} />
                         <input
                             type="text"
                             id="location"
