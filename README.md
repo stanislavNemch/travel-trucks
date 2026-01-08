@@ -17,7 +17,6 @@
 - **Formik & Yup** — для обробки форм та валідації даних користувача.
 - **Axios** — для виконання HTTP-запитів до API.
 - **React Hot Toast** — для відображення стильних сповіщень.
-- **Lucide Icons & FontAwesome** — набір сучасних іконок.
 
 ## Структура Проєкту
 
@@ -102,7 +101,6 @@ The project is built on a modern technology stack to ensure speed, scalability, 
 - **Formik & Yup** — For form handling and user data validation.
 - **Axios** — For making HTTP requests to the API.
 - **React Hot Toast** — For displaying stylish notifications.
-- **Lucide Icons & FontAwesome** — A set of modern icons.
 
 ## Project Structure
 
