@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useCampersStore } from "@/store/campers";
 import { useFilterStore } from "@/store/filters";
 import { useCampers, type CampersResult } from "@/hooks/useQuery";
@@ -48,7 +48,6 @@ export const CamperList = () => {
     data: response,
     isLoading,
     isFetching,
-    error,
   } = useCampers(params) as {
     data?: CampersResult;
     isLoading: boolean;

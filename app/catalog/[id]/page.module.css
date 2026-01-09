@@ -43,8 +43,6 @@
 .mapIcon {
   width: 16px;
   height: 16px;
-  stroke: var(--color-main);
-  fill: transparent;
 }
 
 .price {
