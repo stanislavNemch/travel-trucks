@@ -51,6 +51,39 @@ graph TD
 - `/types` — описи інтерфейсів TypeScript для даних кемперів та фільтрів.
 - `/hooks` — кастомні React хуки для повторного використання логіки.
 
+## Функціональні можливості
+
+### 1. Пошук та фільтрація
+
+- **Локація**: Пошук кемперів за містом.
+- **Обладнання**: Фільтрація за наявністю кондиціонера (AC), кухні, телевізора, душу/туалету та типу трансмісії (автоматична).
+- **Тип кузова**: Вибір між типами Van, Fully Integrated та Alcove.
+- **Динамічне оновлення**: Список кемперів оновлюється при натисканні кнопки "Search". Якщо результати не знайдено, відображається відповідне повідомлення.
+
+### 2. Каталог та картки кемперів
+
+- **Пагінація**: Кнопка "Load More" для підвантаження додаткових карток.
+- **Обране**: Можливість додавати кемпери до списку обраного. Стан зберігається в `localStorage`, тому ваш список не зникне після закриття браузера.
+- **Деталі**: Кнопка "Show more" веде на сторінку з докладним описом, галереєю та відгуками.
+
+### 3. Сторінка деталей кемпера
+
+- **Галерея**: Перегляд фотографій кемпера з ефектом збільшення при наведенні.
+- **Вкладки (Tabs)**: Перемикання між технічними характеристиками (Features) та відгуками користувачів (Reviews).
+- **Рейтинг**: Відображення зіркового рейтингу на основі відгуків.
+
+### 4. Форма бронювання
+
+- **Валідація**: Сувора перевірка всіх полів (ім'я, email, дата). Використовуються Formik та Yup.
+- **Збереження даних**: Введені дані **не скидаються при оновленні сторінки** завдяки інтеграції з `localStorage`. Ви можете продовжити заповнення з того ж місця.
+- **Сповіщення**: Після успішного відправлення форми з'являється спливаюче сповіщення (toast), а дані в `localStorage` очищаються.
+
+### 5. Адаптивність та дизайн
+
+- **Responsive Design**: Додаток повністю оптимізований під мобільні пристрої, планшети та десктопи.
+- **Бургер-меню**: Зручна навігація на мобільних пристроях через виїзне меню.
+- **Сучасний UI**: Використання плавних переходів, тіней та збалансованих макетів (наприклад, рівна ширина колонок на сторінці деталей).
+
 ## Як запустити проєкт (Інструкція)
 
 1. **Клонуйте репозиторій:**
@@ -73,12 +106,6 @@ graph TD
     ```
 
     Додаток буде доступний за адресою [http://localhost:3000](http://localhost:3000).
-
-4. **Збірка для продакшну:**
-    ```bash
-    npm run build
-    npm start
-    ```
 
 ---
 
@@ -134,6 +161,39 @@ graph TD
 - `/public` — Static files: images, icons (SVG sprite).
 - `/types` — TypeScript interface definitions for camper data and filters.
 - `/hooks` — Custom React hooks for logic reuse.
+
+## Functional Features
+
+### 1. Search and Filtering
+
+- **Location**: Search for campers by city.
+- **Equipment**: Filter by AC, kitchen, TV, bathroom, and transmission type (automatic).
+- **Body Type**: Choose between Van, Fully Integrated, and Alcove.
+- **Dynamic Updates**: The camper list updates upon clicking "Search". A "No results found" message appears if no matches are found.
+
+### 2. Catalog and Camper Cards
+
+- **Pagination**: "Load More" button to fetch additional campers.
+- **Favorites**: Save campers to a favorites list. The state is persisted in `localStorage`.
+- **Details**: "Show more" button navigates to the detailed view.
+
+### 3. Camper Details Page
+
+- **Gallery**: View photos with a hover zoom effect.
+- **Tabs**: Switch between technical specifications (Features) and user reviews (Reviews).
+- **Rating**: Visual star rating based on reviews.
+
+### 4. Booking Form
+
+- **Validation**: Strict validation for name, email, and date using Formik and Yup.
+- **Persistence**: Form data is **persisted across page refreshes** using `localStorage`.
+- **Notifications**: Success toast notification upon submission, followed by `localStorage` cleanup.
+
+### 5. Responsiveness and Design
+
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop.
+- **Burger Menu**: Mobile-friendly navigation via a slide-out menu.
+- **Modern UI**: Smooth transitions, balanced layouts, and premium aesthetics.
 
 ## How to Run the Project (Instructions)
 

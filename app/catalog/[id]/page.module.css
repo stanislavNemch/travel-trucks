@@ -99,12 +99,11 @@
 }
 
 .leftColumn {
-    flex-grow: 1;
+    flex: 1;
 }
 
 .rightColumn {
-    flex-shrink: 0;
-    width: 448px;
+    flex: 1;
 }
 
 @media (max-width: 1024px) {

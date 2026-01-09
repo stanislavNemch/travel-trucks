@@ -3,7 +3,6 @@
     border-radius: 10px;
     padding: 44px;
     width: 100%;
-    max-width: 448px; /* Or 100% depending on layout */
 }
 
 .title {

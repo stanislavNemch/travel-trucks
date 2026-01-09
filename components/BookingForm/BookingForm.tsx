@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
@@ -23,15 +23,37 @@ export const BookingForm = () => {
             email: Yup.string()
                 .email("Invalid email address")
                 .required("Email is required"),
-            date: Yup.date().required("Booking date is required").nullable(),
+            date: Yup.date().required("Booking date is required"),
             comment: Yup.string(),
         }),
         onSubmit: (values, { resetForm }) => {
             console.log(values);
             toast.success("Booking successful!");
+            localStorage.removeItem("bookingFormData");
             resetForm();
         },
     });
+
+    // Load data from localStorage on mount
+    useEffect(() => {
+        const savedData = localStorage.getItem("bookingFormData");
+        if (savedData) {
+            try {
+                const parsedData = JSON.parse(savedData);
+                if (parsedData.date) {
+                    parsedData.date = new Date(parsedData.date);
+                }
+                formik.setValues(parsedData);
+            } catch (error) {
+                console.error("Error parsing saved form data:", error);
+            }
+        }
+    }, []);
+
+    // Save data to localStorage on change
+    useEffect(() => {
+        localStorage.setItem("bookingFormData", JSON.stringify(formik.values));
+    }, [formik.values]);
 
     return (
         <div className={styles.formWrapper}>
@@ -92,6 +114,7 @@ export const BookingForm = () => {
                         onChange={(date: Date | null) =>
                             formik.setFieldValue("date", date)
                         }
+                        onBlur={() => formik.setFieldTouched("date", true)}
                         placeholderText="Booking date*"
                         className={clsx(
                             styles.input,

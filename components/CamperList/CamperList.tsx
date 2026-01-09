@@ -31,6 +31,17 @@ export const CamperList = () => {
         return <Loader />;
     }
 
+    if (!loading && filteredCampers.length === 0) {
+        return (
+            <div className={styles.noResults}>
+                <p className={styles.noResultsText}>
+                    No campers found matching your criteria. Try adjusting your
+                    filters.
+                </p>
+            </div>
+        );
+    }
+
     return (
         <div className={styles.listWrapper}>
             <ul className={styles.list}>

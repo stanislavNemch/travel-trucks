@@ -35,7 +35,7 @@ export const useCampersStore = create<CampersState>((set) => ({
             const items = Array.isArray(data) ? data : data.items || [];
             set({ campers: items, loading: false });
         } catch (error: any) {
-            set({ error: error.message, loading: false });
+            set({ campers: [], error: error.message, loading: false });
         }
     },
 }));

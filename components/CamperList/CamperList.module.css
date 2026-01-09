@@ -16,3 +16,20 @@
 .loadMore {
     margin-top: 20px;
 }
+
+.noResults {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.noResultsText {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-main);
+    max-width: 400px;
+    line-height: 1.5;
+}
