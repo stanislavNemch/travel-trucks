@@ -49,7 +49,6 @@ graph TD
 - `/store` — логіка керування станом додатку (Zustand).
 - `/public` — статичні файли: зображення, іконки (SVG sprite).
 - `/types` — описи інтерфейсів TypeScript для даних кемперів та фільтрів.
-- `/hooks` — кастомні React хуки для повторного використання логіки.
 
 ## Функціональні можливості
 
@@ -160,7 +159,6 @@ graph TD
 - `/store` — Application state management logic (Zustand).
 - `/public` — Static files: images, icons (SVG sprite).
 - `/types` — TypeScript interface definitions for camper data and filters.
-- `/hooks` — Custom React hooks for logic reuse.
 
 ## Functional Features
 
