@@ -26,6 +26,11 @@ export const useCampersStore = create<CampersState>((set) => ({
                 if (filters.bathroom) params.bathroom = true;
                 if (filters.kitchen) params.kitchen = true;
                 if (filters.TV) params.TV = true;
+                if (filters.radio) params.radio = true;
+                if (filters.refrigerator) params.refrigerator = true;
+                if (filters.microwave) params.microwave = true;
+                if (filters.gas) params.gas = true;
+                if (filters.water) params.water = true;
                 if (filters.transmission)
                     params.transmission = filters.transmission;
             }

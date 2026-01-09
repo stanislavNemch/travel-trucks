@@ -1,5 +1,8 @@
 .featuresWrapper {
     width: 100%;
+    background-color: var(--color-inputs);
+    padding: 44px;
+    border-radius: 20px;
 }
 
 .categories {

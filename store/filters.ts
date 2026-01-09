@@ -15,6 +15,11 @@ const initialFilters: Filters = {
     bathroom: false,
     kitchen: false,
     TV: false,
+    radio: false,
+    refrigerator: false,
+    microwave: false,
+    gas: false,
+    water: false,
     transmission: "",
 };
 

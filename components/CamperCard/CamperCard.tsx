@@ -98,6 +98,66 @@ export const CamperCard: React.FC<CamperCardProps> = ({ camper }) => {
                             AC
                         </span>
                     )}
+                    {camper.bathroom && (
+                        <span className={styles.category}>
+                            <Icon
+                                id="ph_shower"
+                                className={styles.categoryIcon}
+                            />
+                            Bathroom
+                        </span>
+                    )}
+                    {camper.TV && (
+                        <span className={styles.category}>
+                            <Icon id="tv" className={styles.categoryIcon} />
+                            TV
+                        </span>
+                    )}
+                    {camper.radio && (
+                        <span className={styles.category}>
+                            <Icon
+                                id="ui-radios"
+                                className={styles.categoryIcon}
+                            />
+                            Radio
+                        </span>
+                    )}
+                    {camper.refrigerator && (
+                        <span className={styles.category}>
+                            <Icon
+                                id="solar_fridge-outline"
+                                className={styles.categoryIcon}
+                            />
+                            Refrigerator
+                        </span>
+                    )}
+                    {camper.microwave && (
+                        <span className={styles.category}>
+                            <Icon
+                                id="lucide_microwave"
+                                className={styles.categoryIcon}
+                            />
+                            Microwave
+                        </span>
+                    )}
+                    {camper.gas && (
+                        <span className={styles.category}>
+                            <Icon
+                                id="hugeicons_gas-stove"
+                                className={styles.categoryIcon}
+                            />
+                            Gas
+                        </span>
+                    )}
+                    {camper.water && (
+                        <span className={styles.category}>
+                            <Icon
+                                id="ion_water-outline"
+                                className={styles.categoryIcon}
+                            />
+                            Water
+                        </span>
+                    )}
                 </div>
                 <Link
                     href={`/catalog/${camper.id}`}

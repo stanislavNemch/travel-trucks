@@ -4,6 +4,8 @@
     align-items: center;
     gap: 50px;
     width: 100%;
+    flex: 1;
+    min-width: 0; /* Allow flex item to shrink below content size */
 }
 
 .list {

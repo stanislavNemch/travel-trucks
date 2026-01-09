@@ -76,6 +76,31 @@ export const Filters = () => {
                                 },
                                 { key: "TV", label: "TV", icon: "tv" },
                                 {
+                                    key: "radio",
+                                    label: "Radio",
+                                    icon: "ui-radios",
+                                },
+                                {
+                                    key: "refrigerator",
+                                    label: "Refrigerator",
+                                    icon: "solar_fridge-outline",
+                                },
+                                {
+                                    key: "microwave",
+                                    label: "Microwave",
+                                    icon: "lucide_microwave",
+                                },
+                                {
+                                    key: "gas",
+                                    label: "Gas",
+                                    icon: "hugeicons_gas-stove",
+                                },
+                                {
+                                    key: "water",
+                                    label: "Water",
+                                    icon: "ion_water-outline",
+                                },
+                                {
                                     key: "bathroom",
                                     label: "Shower/WC",
                                     icon: "ph_shower",
@@ -160,6 +185,14 @@ export const Filters = () => {
                                         localFilters.form === item.value &&
                                             styles.checked
                                     )}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const newValue =
+                                            localFilters.form === item.value
+                                                ? ""
+                                                : item.value;
+                                        handleTypeChange(newValue);
+                                    }}
                                 >
                                     <input
                                         type="radio"
@@ -168,9 +201,7 @@ export const Filters = () => {
                                         checked={
                                             localFilters.form === item.value
                                         }
-                                        onChange={() =>
-                                            handleTypeChange(item.value)
-                                        }
+                                        readOnly
                                         className={styles.hiddenRadio}
                                     />
                                     <Icon

@@ -44,5 +44,25 @@ export interface Filters {
     bathroom: boolean;
     kitchen: boolean;
     TV: boolean;
+    radio: boolean;
+    refrigerator: boolean;
+    microwave: boolean;
+    gas: boolean;
+    water: boolean;
     transmission: string;
 }
+
+export const initialFilters: Filters = {
+    location: "",
+    form: "",
+    AC: false,
+    bathroom: false,
+    kitchen: false,
+    TV: false,
+    radio: false,
+    refrigerator: false,
+    microwave: false,
+    gas: false,
+    water: false,
+    transmission: "",
+};
