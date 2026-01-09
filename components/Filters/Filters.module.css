@@ -1,136 +1,132 @@
 .filters {
-    width: 360px;
-    flex-shrink: 0;
+  width: 360px;
+  flex-shrink: 0;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .locationGroup {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .label {
-    display: block;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--color-secondary);
-    margin-bottom: 8px;
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-secondary);
+  margin-bottom: 8px;
 }
 
 .inputWrapper {
-    position: relative;
+  position: relative;
 }
 
 .inputIcon {
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 20px;
-    stroke: var(--color-main);
-    fill: transparent;
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
 }
 
 .input {
-    width: 100%;
-    padding: 18px 18px 18px 44px;
-    background-color: var(--color-inputs);
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    line-height: 1.25;
-    color: var(--color-main);
+  width: 100%;
+  padding: 18px 18px 18px 44px;
+  background-color: var(--color-inputs);
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-main);
 }
 
 .input::placeholder {
-    color: rgba(16, 24, 40, 0.6);
+  color: rgba(16, 24, 40, 0.6);
 }
 
 .groupTitle {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 14px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
 
 .subGroup {
-    margin-bottom: 32px;
-    border-top: 1px solid rgba(16, 24, 40, 0.1);
-    padding-top: 24px;
+  margin-bottom: 32px;
+  border-top: 1px solid rgba(16, 24, 40, 0.1);
+  padding-top: 24px;
 }
 
 .subTitle {
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 1.2;
-    margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 24px;
 }
 
 .checkboxGrid,
 .radioGrid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .checkboxLabel,
 .radioLabel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 110px; /* Approximate width */
-    height: 95px;
-    border: 1px solid rgba(16, 24, 40, 0.2);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: border-color var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 110px; /* Approximate width */
+  height: 95px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color var(--transition);
 }
 
 .checkboxLabel:hover,
 .radioLabel:hover {
-    border-color: var(--color-button);
+  border-color: var(--color-button);
 }
 
 .checked {
-    border-color: var(--color-button);
+  border-color: var(--color-button);
 }
 
 .hiddenCheckbox,
 .hiddenRadio {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .filterIcon {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 8px;
-    stroke: var(--color-main);
-    fill: transparent;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 8px;
 }
 
 .filterText {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.25;
-    text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: center;
 }
 
 .searchButton {
-    margin-top: 32px;
-    align-self: flex-start;
+  margin-top: 32px;
+  align-self: flex-start;
 }
