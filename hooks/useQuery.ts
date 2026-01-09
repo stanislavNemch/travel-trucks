@@ -2,12 +2,32 @@ import { useQuery } from "@tanstack/react-query";
 import { getCampers, getCamperById } from "@/lib/api";
 import { Camper } from "@/types";
 
+type CampersApiResponse =
+  | Camper[]
+  | {
+      items?: Camper[];
+      total?: number;
+    };
+
+export type CampersResult = {
+  items: Camper[];
+  total: number | null;
+};
+
 export const useCampers = (params?: Record<string, any>) => {
-  return useQuery({
+  return useQuery<CampersApiResponse, Error, CampersResult>({
     queryKey: ["campers", params],
-    queryFn: () => getCampers(params),
+    queryFn: () => getCampers(params) as Promise<CampersApiResponse>,
     staleTime: 1000 * 60 * 5, // 5 minutes
-    keepPreviousData: true,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    retry: false,
+    select: (data): CampersResult => ({
+      items: Array.isArray(data) ? data : (data.items ?? []),
+      total: Array.isArray(data)
+        ? ((data as Camper[]).length ?? null)
+        : (data.total ?? null),
+    }),
   });
 };
 

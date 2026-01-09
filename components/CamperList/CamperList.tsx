@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from "react";
 import { useCampersStore } from "@/store/campers";
 import { useFilterStore } from "@/store/filters";
-import { useCampers } from "@/hooks/useQuery";
+import { useCampers, type CampersResult } from "@/hooks/useQuery";
+import { Camper } from "@/types";
 import { CamperCard } from "../CamperCard/CamperCard";
 import { Button } from "../Button/Button";
 import styles from "./CamperList.module.css";
@@ -12,15 +13,17 @@ import { Loader } from "../Loader/Loader";
 export const CamperList = () => {
   const { limit, page, resetPage, incrementPage } = useCampersStore();
   const { filters } = useFilterStore();
-  const [allCampers, setAllCampers] = useState<any[]>([]);
+  const [allCampers, setAllCampers] = useState<Camper[]>([]);
+  const [lastLoadedPage, setLastLoadedPage] = useState(0);
 
-  // Reset page when filters change
+  // Скидаємо сторінку та очищаємо список при зміні фільтрів
   useEffect(() => {
     resetPage();
     setAllCampers([]);
+    setLastLoadedPage(0);
   }, [filters, resetPage]);
 
-  // Prepare query params from filters + pagination
+  // Формуємо параметри запиту для бекенду (фільтри + пагінація)
   const params: Record<string, any> = {
     page,
     limit,
@@ -41,39 +44,60 @@ export const CamperList = () => {
     if (filters.transmission) params.transmission = filters.transmission;
   }
 
-  const { data: response, isLoading, isFetching } = useCampers(params);
+  const {
+    data: response,
+    isLoading,
+    isFetching,
+    error,
+  } = useCampers(params) as {
+    data?: CampersResult;
+    isLoading: boolean;
+    isFetching: boolean;
+    error?: Error | null;
+  };
 
-  // Accumulate campers from multiple page loads
+  // Акумулюємо результати посторінкового завантаження
   useEffect(() => {
-    if (response) {
-      const currentPageCampers = Array.isArray(response)
-        ? response
-        : response?.items || [];
+    if (!response) return;
 
-      if (page === 1) {
-        setAllCampers(currentPageCampers);
-      } else {
-        setAllCampers((prev) => [...prev, ...currentPageCampers]);
-      }
+    const currentPageCampers = response.items ?? [];
+
+    // Запобігаємо дублюванню при placeholderData: оновлюємо лише коли сторінка змінилась
+    if (page === 1) {
+      setAllCampers(currentPageCampers);
+      setLastLoadedPage(1);
+      return;
     }
-  }, [response, page]);
+
+    if (page > lastLoadedPage) {
+      setAllCampers((prev) => [...prev, ...currentPageCampers]);
+      setLastLoadedPage(page);
+    }
+  }, [response, page, lastLoadedPage]);
 
   const handleLoadMore = () => {
     incrementPage();
   };
 
-  const currentPageCampers = Array.isArray(response)
-    ? response
-    : response?.items || [];
-  const isLoadingMore = isFetching && page > 1;
-  const hasMore = currentPageCampers.length === limit;
+  const currentPageCampers = response?.items ?? [];
+  const isLoadingMore = isFetching && page > lastLoadedPage;
+  const total = response?.total;
+  const hasMore =
+    total != null
+      ? allCampers.length < total
+      : currentPageCampers.length === limit;
   const showLoadMore = isLoadingMore || hasMore;
+  const isInitialLoading = (isLoading || isFetching) && allCampers.length === 0;
+  const isEmptyState =
+    !isLoading &&
+    !isFetching &&
+    (!response || (response.items ?? []).length === 0);
 
-  if (isLoading && allCampers.length === 0) {
+  if (isInitialLoading) {
     return <Loader />;
   }
 
-  if (!isLoading && allCampers.length === 0) {
+  if (isEmptyState) {
     return (
       <div className={styles.noResults}>
         <p className={styles.noResultsText}>
@@ -86,7 +110,7 @@ export const CamperList = () => {
   return (
     <div className={styles.listWrapper}>
       <ul className={styles.list}>
-        {allCampers.map((camper: any) => (
+        {allCampers.map((camper: Camper) => (
           <li key={camper.id}>
             <CamperCard camper={camper} />
           </li>
