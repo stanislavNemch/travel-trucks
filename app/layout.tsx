@@ -6,30 +6,33 @@ import { Providers } from "@/components/Providers";
 import { ScrollToTop } from "@/components/ScrollToTop/ScrollToTop";
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+    subsets: ["latin"],
+    variable: "--font-inter",
+    display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "TravelTrucks",
-  description: "Rent campers for your best journey",
+    title: "TravelTrucks",
+    description: "Rent campers for your best journey",
+    icons: {
+        icon: "/icons/logo.svg",
+    },
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.variable}>
-        <Providers>
-          {children}
-          <Toaster position="top-center" />
-          <ScrollToTop />
-        </Providers>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body className={inter.variable}>
+                <Providers>
+                    {children}
+                    <Toaster position="top-center" />
+                    <ScrollToTop />
+                </Providers>
+            </body>
+        </html>
+    );
 }
