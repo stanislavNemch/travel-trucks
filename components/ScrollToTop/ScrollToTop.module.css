@@ -1,0 +1,37 @@
+.button {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-button);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 24, 40, 0.15);
+  transition: all var(--transition);
+  z-index: 100;
+
+  &:hover {
+    background-color: var(--color-button-hover, var(--color-button));
+    box-shadow: 0 8px 20px rgba(16, 24, 40, 0.25);
+    transform: translateY(-4px);
+  }
+
+  &:active {
+    transform: translateY(-2px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .button {
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+  }
+}
