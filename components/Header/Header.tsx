@@ -3,17 +3,26 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useAuthStore } from "@/store/auth";
 import { Icon } from "../Icon/Icon";
 import styles from "./Header.module.css";
 import clsx from "clsx";
 
 export const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAuthenticated, user, logout } = useAuthStore();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+
+  const handleLogout = () => {
+    logout();
+    closeMenu();
+    router.push("/");
+  };
 
   return (
     <header className={styles.header}>
@@ -62,6 +71,34 @@ export const Header = () => {
                 Catalog
               </Link>
             </li>
+            {isAuthenticated ? (
+              <>
+                <li className={styles.userInfo}>
+                  <span className={styles.userName}>{user?.name}</span>
+                </li>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className={clsx(styles.navLink, styles.logoutButton)}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link
+                  href="/login"
+                  className={clsx(
+                    styles.navLink,
+                    pathname === "/login" && styles.active
+                  )}
+                  onClick={closeMenu}
+                >
+                  Login
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

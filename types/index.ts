@@ -1,3 +1,9 @@
+export interface User {
+    id: string;
+    email: string;
+    name: string;
+}
+
 export interface Review {
     reviewer_name: string;
     reviewer_rating: number;

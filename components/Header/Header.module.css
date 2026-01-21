@@ -75,6 +75,36 @@
     color: var(--color-button);
 }
 
+.userInfo {
+    display: flex;
+    align-items: center;
+}
+
+.userName {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-main);
+    text-transform: capitalize;
+}
+
+.logoutButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--color-main);
+    transition: color var(--transition);
+}
+
+.logoutButton:hover {
+    color: var(--color-button);
+}
+
 .burger {
     display: none;
     background: none;

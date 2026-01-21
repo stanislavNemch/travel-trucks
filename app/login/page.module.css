@@ -1,0 +1,122 @@
+.container {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 16px;
+}
+
+.loginBox {
+    background: var(--color-white);
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    border-radius: 20px;
+    padding: 48px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-secondary);
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.25;
+    color: var(--color-main);
+}
+
+.input {
+    width: 100%;
+    padding: 18px;
+    background-color: var(--color-inputs);
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--color-main);
+    transition: all 0.2s ease;
+}
+
+.input::placeholder {
+    color: rgba(16, 24, 40, 0.6);
+}
+
+.input:focus {
+    outline: 2px solid var(--color-button);
+    outline-offset: 2px;
+}
+
+.error {
+    border: 1px solid var(--color-button);
+}
+
+.errorMessage {
+    color: var(--color-button);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.submitButton {
+    margin-top: 8px;
+    width: 100%;
+}
+
+.demoInfo {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: rgba(228, 72, 72, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(228, 72, 72, 0.2);
+}
+
+.demoText {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--color-secondary);
+    text-align: center;
+    margin: 0;
+}
+
+.demoText strong {
+    color: var(--color-button);
+}
+
+@media (max-width: 768px) {
+    .loginBox {
+        padding: 32px 24px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+}
