@@ -1,5 +1,6 @@
 import axios from "axios";
 import { User } from "@/types";
+import { AUTH_STORAGE_KEY } from "@/store/auth";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -10,7 +11,7 @@ export const instance = axios.create({
 // Add auth token to requests if it exists
 instance.interceptors.request.use((config) => {
   if (typeof window !== 'undefined') {
-    const authStorage = localStorage.getItem('auth-storage');
+    const authStorage = localStorage.getItem(AUTH_STORAGE_KEY);
     if (authStorage) {
       try {
         const { state } = JSON.parse(authStorage);

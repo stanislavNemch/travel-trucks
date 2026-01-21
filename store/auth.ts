@@ -2,6 +2,8 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { User } from "@/types";
 
+export const AUTH_STORAGE_KEY = "auth-storage";
+
 interface AuthState {
     user: User | null;
     token: string | null;
@@ -49,7 +51,7 @@ export const useAuthStore = create<AuthState>()(
             },
         }),
         {
-            name: "auth-storage",
+            name: AUTH_STORAGE_KEY,
         }
     )
 );
