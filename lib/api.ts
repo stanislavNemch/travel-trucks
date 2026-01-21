@@ -1,4 +1,5 @@
 import axios from "axios";
+import { User } from "@/types";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -34,8 +35,17 @@ export const getCamperById = async (id: string) => {
   return data;
 };
 
+interface LoginResponse {
+  user: User;
+  token: string;
+}
+
+interface LogoutResponse {
+  success: boolean;
+}
+
 // Auth API functions (simulated for demo)
-export const loginUser = async (email: string, password: string) => {
+export const loginUser = async (email: string, password: string): Promise<LoginResponse> => {
   // In a real application, this would make an API call to authenticate
   // For now, we simulate a successful login
   return new Promise((resolve) => {
@@ -52,7 +62,7 @@ export const loginUser = async (email: string, password: string) => {
   });
 };
 
-export const logoutUser = async () => {
+export const logoutUser = async (): Promise<LogoutResponse> => {
   // In a real application, this would invalidate the token on the server
   return new Promise((resolve) => {
     setTimeout(() => {
