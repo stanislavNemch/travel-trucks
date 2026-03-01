@@ -1,4 +1,4 @@
-# TravelTrucks — Camper Rental in Ukraine
+# TravelTrucks — Camper Rental
 
 ## Project Description
 
